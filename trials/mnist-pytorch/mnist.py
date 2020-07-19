@@ -15,13 +15,14 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from pathlib import Path
 from dropt.util.log import UserLogger
+from variable import LOG_DIR, DATA_PREFIX
 
 
 # logger
-logger_name = Path(__file__).stem
-logger = UserLogger(logger_name)
+name = Path(__file__).stem
+logger = UserLogger(name)
 logger.add_console_handler(logging.INFO)
-logger.add_file_handler(logging.INFO, filename=f'{logger_name}.log')
+logger.add_file_handler(logging.INFO, filename=LOG_DIR.joinpath(f'{name}.log'))
 
 
 class Net(nn.Module):
@@ -101,7 +102,7 @@ def run(args):
 
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     train_loader = torch.utils.data.DataLoader(
-        datasets.MNIST('../data',
+        datasets.MNIST(DATA_PREFIX,
             train=True,
             download=True,
             transform=transforms.Compose([
@@ -112,7 +113,7 @@ def run(args):
         shuffle=True,
         **kwargs)
     test_loader = torch.utils.data.DataLoader(
-        datasets.MNIST('../data',
+        datasets.MNIST(DATA_PREFIX,
             train=False,
             transform=transforms.Compose([
             transforms.ToTensor(),

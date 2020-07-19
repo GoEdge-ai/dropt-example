@@ -29,7 +29,7 @@ DATA_PATH = DATA_PREFIX.joinpath('titanic')
 @FuncLoggingWrapper(logger)
 def data_loader():
     '''Load dataset'''
-    data = pd.read_csv(f'{DATA_PATH}/train.csv')
+    data = pd.read_csv(DATA_PATH.joinpath('train.csv'))
 
     # data imputation
     logger.info('Impute "Age" with median and "Embarked" with "S".')

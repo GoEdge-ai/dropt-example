@@ -29,22 +29,22 @@ import time
 from tqdm import tqdm
 import warnings
 from dropt.util.log import UserLogger
+from variable import DATA_PREFIX, LOG_DIR
 
 
 # define dataset url and paths
 URL = "http://cs231n.stanford.edu/tiny-imagenet-200.zip"
-PREFIX = Path("../../../data")
-DATA_PATH = PREFIX.joinpath("tiny-imagenet-200")
+DATA_PATH = DATA_PREFIX.joinpath("tiny-imagenet-200")
 TRAIN_PATH = DATA_PATH.joinpath("train")
 VAL_PATH = DATA_PATH.joinpath("val")
 TEST_PATH = DATA_PATH.joinpath("test")
 
 
 # logger
-logger_name = Path(__file__).stem
-logger = UserLogger(logger_name)
+name = Path(__file__).stem
+logger = UserLogger(name)
 logger.add_console_handler(logging.INFO)
-logger.add_file_handler(logging.INFO, filename=f'{logger_name}.log')
+logger.add_file_handler(logging.INFO, filename=LOG_DIR.joinpath(f'{name}.log'))
 
 
 # best top 1 accuracy
