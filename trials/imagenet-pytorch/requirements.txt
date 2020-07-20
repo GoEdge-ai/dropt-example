@@ -1,4 +1,4 @@
-dropt-cli
+dropt-cli>=0.8.3
 torch
 torchvision
 tqdm
