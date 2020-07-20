@@ -2,10 +2,11 @@
     "config": {
         "experimentName": "func-eggholder",
         "maxExecDuration": "1h",
-        "maxTrialNum": 1000,
+        "maxTrialNum": 50,
         "parentProject": "None",
         "model": "eggholder",
         "updatePeriod": 60,
+        "mode": "min",
         "tuner": {
             "builtinTunerName": "TPE",
             "classArgs": {"optimize_mode": "minimize"}

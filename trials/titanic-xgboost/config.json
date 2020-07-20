@@ -2,12 +2,13 @@
     "config": {
         "experimentName": "titanic-xgboost",
         "maxExecDuration": "1h",
-        "maxTrialNum": 10,
+        "maxTrialNum": 50,
         "parentProject": "None",
         "model": "xgb",
         "updatePeriod": 60,
+        "mode": "max",
         "tuner": {
-            "builtinTunerName": "TPE",
+            "builtinTunerName": "Evolution",
             "classArgs": {"optimize_mode": "maximize"}
         }
     },

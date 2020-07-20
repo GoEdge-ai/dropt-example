@@ -2,12 +2,13 @@
     "config":{
         "experimentName": "func-rosenbrock",
         "maxExecDuration": "1h",
-        "maxTrialNum": 1000,
+        "maxTrialNum": 50,
         "parentProject": "None",
         "model": "rosenbrock",
         "updatePeriod": 60,
+        "mode": "min",
         "tuner": {
-            "builtinTunerName": "TPE",
+            "builtinTunerName": "Anneal",
             "classArgs": {"optimize_mode": "minimize"}
         }
     },
